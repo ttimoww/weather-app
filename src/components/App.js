@@ -6,7 +6,7 @@ class App extends Component {
 
   state = {
     locations : [{
-      name: 'Amst',
+      name: 'Amstrdam',
       id: 0
     },
     {

@@ -11,6 +11,7 @@
         border-radius: 4px;
         position: relative;
         width: 100%;
+        height: 170px;
         margin-bottom: 10px;
 
         &:not(:last-child){
@@ -81,6 +82,36 @@
                     opacity: .8;
                     text-align: center
                 }
+            }
+        }
+    
+        .location__error{
+            position: relative;
+            padding: 15px;
+            height: 100%;
+            box-sizing: border-box;
+
+            h2{
+                color: #fff;
+                font-family: 'Roboto', sans-serif;
+                margin: 0; 
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                display: block;
+            }
+        }
+
+        .location__loading{
+            i{
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                display: block;
+                color: #FFF;
+                font-size: 2.5em;
+                width: 1px;
+                text-align: center;
             }
         }
     }

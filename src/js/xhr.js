@@ -13,7 +13,7 @@ export const get = url => {
   
       req.onload = function() {
         // .onload Will always be called, even with 404 so check the status
-        if (req.status == 200) {
+        if (req.status === 200) {
           // Resolve the promise with the response text
           resolve(req.response);
         }
