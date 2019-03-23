@@ -66,6 +66,18 @@ html, body {
 .results .location .remove-location:hover {
   opacity: 1;
 }
+.results .location .reload-location {
+  position: absolute;
+  top: 25px;
+  right: 5px;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  z-index: 10;
+}
+.results .location .reload-location:hover {
+  opacity: 1;
+}
 .results .location .location__container {
   height: 100%;
   width: 100%;
@@ -111,6 +123,14 @@ html, body {
   font-size: 3em;
   margin: 0;
   text-align: center;
+}
+.results .location .location__container .location__loaded .location__timestamp p {
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+  margin: 15px 0 0 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.7em;
 }
 .results .location .location__container .location__error h2 {
   margin: 0 0 10px 0;

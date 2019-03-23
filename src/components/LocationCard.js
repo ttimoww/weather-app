@@ -19,12 +19,12 @@ class LocationCard extends Component{
         get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4e262f77fbfc100ee6fca720cc13e5e5&units=metric`)
         .then((response) => {
             const weather = JSON.parse(response);
-            console.log(weather);
-            console.log(this.convertToLocalTime(weather.dt));
+            
             this.setState({
                 isLoaded : true,
                 imageCode: weather.weather[0].icon,
-                temp: Math.round(weather.main.temp)
+                temp: Math.round(weather.main.temp),
+                lastCalc: this.convertToLocalTime(weather.dt)
             })
           }, (error) => {
             this.setState({
@@ -46,6 +46,10 @@ class LocationCard extends Component{
         return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
     }
 
+    handleReloadLocation = () =>{
+        this.getCurrentWeather(this.props.cityName);        
+    }
+
     componentWillMount(){
         this.getCurrentWeather(this.props.cityName);
     }
@@ -59,7 +63,7 @@ class LocationCard extends Component{
                     <div className="location__container">
                         <div className="location__error">
                             <h2>{this.props.cityName}</h2>
-                            <p>is not a valid city name.</p>
+                            <p>Can not find current weather data</p>
                         </div>
                     </div>
                 </div>
@@ -71,6 +75,7 @@ class LocationCard extends Component{
             return(
                 <div className="location">
                     <i className="fas fa-times-circle remove-location" ></i>
+                    <i className="fas fa-sync-alt reload-location" onClick={this.handleReloadLocation}></i>
                     <div className="location__container">
                         <div className="location__loaded">
                             <h2>{this.props.cityName}</h2>
@@ -82,7 +87,9 @@ class LocationCard extends Component{
                                     <p>{this.state.temp}<span>°C</span></p>
                                 </div>
                             </div>
-                            <div className="location__localtime"></div>
+                            <div className="location__timestamp">
+                                <p>Last calculation: {this.state.lastCalc}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
