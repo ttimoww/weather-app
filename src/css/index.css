@@ -52,7 +52,7 @@ html, body {
     width: 250px;
   }
 }
-.results .location i {
+.results .location .remove-location {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -61,75 +61,63 @@ html, body {
   cursor: pointer;
   z-index: 10;
 }
-.results .location i:hover {
+.results .location .remove-location:hover {
   opacity: 1;
 }
 .results .location .location__container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
   padding: 15px;
 }
-.results .location .location__container h2 {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  margin: 0;
+.results .location .location__container .location__loading {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.results .location .location__container .location__wheater {
-  margin-top: 10px;
+.results .location .location__container .location__loading i {
+  color: #fff;
+  font-size: 2em;
+}
+.results .location .location__container .location__loaded h2 {
+  margin: 0 0 10px 0;
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+}
+.results .location .location__container .location__loaded .location__weather {
   display: flex;
 }
-.results .location .location__container .location__wheater .location__wheater__image {
+.results .location .location__container .location__loaded .location__weather .icon {
   width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.results .location .location__container .location__wheater .location__wheater__image img {
+.results .location .location__container .location__loaded .location__weather .icon img {
   width: 80px;
 }
-.results .location .location__container .location__wheater .location__wheater__temp {
+.results .location .location__container .location__loaded .location__weather .temp {
   width: 50%;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.results .location .location__container .location__wheater .location__wheater__temp p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  margin: 0;
-  font-size: 2.5em;
-  font-family: "Roboto", sans-serif;
-}
-.results .location .location__container .location__timestamp p {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  font-size: 0.7em;
-  opacity: 0.8;
-  text-align: center;
-}
-.results .location .location__error {
-  position: relative;
-  padding: 15px;
-  height: 100%;
-  box-sizing: border-box;
-}
-.results .location .location__error h2 {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-}
-.results .location .location__loading i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
+.results .location .location__container .location__loaded .location__weather .temp p {
   color: #FFF;
-  font-size: 2.5em;
-  width: 1px;
+  font-family: "Roboto", sans-serif;
+  font-size: 3em;
+  margin: 0;
   text-align: center;
+}
+.results .location .location__container .location__error h2 {
+  margin: 0 0 10px 0;
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+}
+.results .location .location__container .location__error p {
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
 }
 
 .addLocation {

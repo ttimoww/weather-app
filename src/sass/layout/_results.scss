@@ -22,7 +22,7 @@
             width: 250px;
         }
 
-        i{
+        .remove-location{
             position: absolute;
             top: 5px;
             right: 5px;
@@ -37,81 +37,81 @@
         }
 
         .location__container{
-            padding: 15px;
-
-            h2{
-                color: #fff;
-                font-family: 'Roboto', sans-serif;
-                margin: 0;
-            }
-
-            .location__wheater{
-                margin-top: 10px;
-                display: flex;
-
-                .location__wheater__image{
-                    width: 50%;
-
-                    img{
-                        width: 80px;
-                    }
-                }
-
-                .location__wheater__temp{
-                    width: 50%;
-                    position: relative;
-
-                    p{
-                        position: absolute;
-                        top: 50%; left: 50%;
-                        transform: translate(-50%, -50%);
-                        color: #fff;
-                        margin: 0;
-                        font-size: 2.5em;
-                        font-family: 'Roboto', sans-serif;
-                    }
-                }
-            }
-
-            .location__timestamp{
-                p{
-                    color: #fff;
-                    font-family: 'Roboto', sans-serif;
-                    margin: 0;
-                    font-size: .7em;
-                    opacity: .8;
-                    text-align: center
-                }
-            }
-        }
-    
-        .location__error{
-            position: relative;
-            padding: 15px;
             height: 100%;
+            width: 100%;
             box-sizing: border-box;
+            padding: 15px;
 
-            h2{
-                color: #fff;
-                font-family: 'Roboto', sans-serif;
-                margin: 0; 
-                position: absolute;
-                top: 50%; left: 50%;
-                transform: translate(-50%, -50%);
-                display: block;
+            //Visible when location data is being loaded
+            .location__loading{
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i{
+                    color: #fff;
+                    font-size: 2em;
+                }
             }
-        }
 
-        .location__loading{
-            i{
-                position: absolute;
-                top: 50%; left: 50%;
-                transform: translate(-50%, -50%);
-                display: block;
-                color: #FFF;
-                font-size: 2.5em;
-                width: 1px;
-                text-align: center;
+
+            //Visible when location data is loaded
+            .location__loaded{
+
+                h2{
+                    margin: 0 0 10px 0;
+                    color: #FFF;
+                    font-family: 'Roboto', sans-serif;
+                }
+
+                .location__weather{
+                    display: flex;
+
+                    .icon{
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img{
+                            width: 80px;
+                        }
+                    }
+
+                    .temp{
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        p{
+                            color: #FFF;
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 3em;
+                            margin: 0;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .location__localtime{
+
+                }
+            }
+
+            //Visible when location loading failed
+            .location__error{
+                h2{
+                    margin: 0 0 10px 0;
+                    color: #FFF;
+                    font-family: 'Roboto', sans-serif;
+                }
+
+                p{
+                    color: #FFF;
+                    font-family: 'Roboto', sans-serif;
+                }
             }
         }
     }

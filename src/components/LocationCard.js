@@ -22,7 +22,7 @@ class LocationCard extends Component{
             this.setState({
                 isLoaded : true,
                 imageCode: weather.weather[0].icon,
-                temp: weather.main.temp,
+                temp: Math.round(weather.main.temp),
                 localTime: ''
             })
           }, (error) => {
@@ -36,36 +36,37 @@ class LocationCard extends Component{
 
     render(){
         //In case of error
-        //if (this.state.error) {
-        if (false){
+        if (this.state.error) {
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle"></i>
+                    <i className="fas fa-times-circle remove-location" ></i>
+                    <div className="location__container">
                         <div className="location__error">
-                            <h2>{this.props.cityName} is not a valid city</h2>
+                            <h2>{this.props.cityName}</h2>
+                            <p>is not a valid city name.</p>
                         </div>
+                    </div>
                 </div>
             )
         }
 
         //In case of valid city
-        //else if (!this.state.error){
-        if (false){
+        else if (!this.state.error){
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle"></i>
+                    <i className="fas fa-times-circle remove-location" ></i>
                     <div className="location__container">
-                        <h2>{this.props.cityName}</h2>
-                        <div className="location__wheater">
-                            <div className="location__wheater__image">
-                                <img src={require(`../images/wheater/${this.state.imageCode}.png`)} alt="" />
+                        <div className="location__loaded">
+                            <h2>{this.props.cityName}</h2>
+                            <div className="location__weather">
+                                <div className="icon">
+                                    <img src={require(`../images/wheater/${this.state.imageCode}.png`)} alt="" />
+                                </div>
+                                <div className="temp">
+                                    <p>{this.state.temp}<span>°C</span></p>
+                                </div>
                             </div>
-                            <div className="location__wheater__temp">
-                               <p>{this.state.temp}</p>
-                             </div>
-                        </div>
-                        <div className="location__timestamp">
-                            <p>Local Time: {this.state.localTime}</p>
+                            <div className="location__localtime"></div>
                         </div>
                     </div>
                 </div>
@@ -76,9 +77,11 @@ class LocationCard extends Component{
         else{
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle"></i>
-                    <div className="location__loading">
-                        <i className="fas fa-spinner"></i>
+                    <i className="fas fa-times-circle remove-location" ></i>
+                    <div className="location__container">
+                        <div className="location__loading">
+                            <i className="fas fa-spinner fa-spin"></i>
+                        </div>
                     </div>
                 </div>
             )
