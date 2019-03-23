@@ -1,0 +1,29 @@
+.addLocation{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond-above(xs){
+        justify-content: flex-start;
+    }
+
+    input, button{
+        background-color: rgba(0, 0, 0, .4);
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    input{
+        box-sizing: border-box;
+        @include respond-above(xs){
+            width: 250px;
+            margin-right: 15px;
+        }
+    }
+
+    button{
+        cursor: pointer;
+    }
+}

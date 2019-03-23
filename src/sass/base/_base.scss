@@ -1,0 +1,26 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.background-image{
+    position: absolute;
+    top: 0; left: 0;
+    min-height: 100vh; min-width: 100vw;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    z-index: -10;
+}
+
+.container{
+    box-sizing: border-box;
+    margin-top: 50px;
+    padding: 0px 30px;
+
+    h1{
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}

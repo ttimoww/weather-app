@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  z-index: -10;
+}
+
+.container {
+  box-sizing: border-box;
+  margin-top: 50px;
+  padding: 0px 30px;
+}
+.container h1 {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 576px) {
+  .results {
+    flex-direction: row;
+  }
+}
+.results .location {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.results .location:not(:last-child) {
+  margin-right: 15px;
+}
+@media (min-width: 576px) {
+  .results .location {
+    width: 250px;
+  }
+}
+.results .location i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  z-index: 10;
+}
+.results .location i:hover {
+  opacity: 1;
+}
+.results .location .location__container {
+  padding: 15px;
+}
+.results .location .location__container h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+.results .location .location__container .location__wheater {
+  margin-top: 10px;
+  display: flex;
+}
+.results .location .location__container .location__wheater .location__wheater__image {
+  width: 50%;
+}
+.results .location .location__container .location__wheater .location__wheater__image img {
+  width: 80px;
+}
+.results .location .location__container .location__wheater .location__wheater__temp {
+  width: 50%;
+  position: relative;
+}
+.results .location .location__container .location__wheater .location__wheater__temp p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  margin: 0;
+  font-size: 2.5em;
+  font-family: "Roboto", sans-serif;
+}
+.results .location .location__container .location__timestamp p {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  font-size: 0.7em;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.addLocation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 576px) {
+  .addLocation {
+    justify-content: flex-start;
+  }
+}
+.addLocation input, .addLocation button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+}
+.addLocation input {
+  box-sizing: border-box;
+}
+@media (min-width: 576px) {
+  .addLocation input {
+    width: 250px;
+    margin-right: 15px;
+  }
+}
+.addLocation button {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */
