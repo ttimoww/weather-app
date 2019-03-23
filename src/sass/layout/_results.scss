@@ -4,6 +4,7 @@
 
     @include respond-above(xs){
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .location{
@@ -11,12 +12,10 @@
         border-radius: 4px;
         position: relative;
         width: 100%;
+        min-width: 230px;
         height: 170px;
-        margin-bottom: 10px;
+        margin: 0px 15px 10px 0px;
 
-        &:not(:last-child){
-            margin-right: 15px;
-        }
 
         @include respond-above(xs){
             width: 250px;

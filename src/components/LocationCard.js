@@ -2,36 +2,52 @@ import React, { Component } from 'react';
 import { get } from '../js/xhr';
 
 class LocationCard extends Component{
-
     constructor(){
         super();
         this.state = {
             error: null,
             isLoaded: false,
-            imageCode: '01n',
-            temp: '',
-            localTime: ''
+            imageCode: '01d'
         }
     }
 
-    componentWillMount(){
-        get(`https://api.openweathermap.org/data/2.5/weather?q=${this.props.cityName}&APPID=4e262f77fbfc100ee6fca720cc13e5e5&units=metric`)
+    /**
+     * Get the current weather based on city name
+     * @param {string} city The name of the city to get the data from
+     */
+    getCurrentWeather = (city) =>{
+        get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4e262f77fbfc100ee6fca720cc13e5e5&units=metric`)
         .then((response) => {
             const weather = JSON.parse(response);
             console.log(weather);
+            console.log(this.convertToLocalTime(weather.dt));
             this.setState({
                 isLoaded : true,
                 imageCode: weather.weather[0].icon,
-                temp: Math.round(weather.main.temp),
-                localTime: ''
+                temp: Math.round(weather.main.temp)
             })
           }, (error) => {
-            console.log(`${this.props.cityName} is not a valid city name`);
             this.setState({
                 isLoaded : true,
                 error
             })
           })
+    }
+
+    /**
+     * Converts unix to readable timestamp
+     * @param {string} utc The unix value to be converted
+     */
+    convertToLocalTime = (unix) =>{
+        const date = new Date(unix*1000);
+        const hours = date.getHours();
+        const minutes = "0" + date.getMinutes();
+        const seconds = "0" + date.getSeconds();
+        return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+    }
+
+    componentWillMount(){
+        this.getCurrentWeather(this.props.cityName);
     }
 
     render(){

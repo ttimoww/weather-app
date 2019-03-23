@@ -6,12 +6,16 @@ class App extends Component {
 
   state = {
     locations : [{
-      name: 'Amstrdam',
+      name: 'Amsterdam',
       id: 0
     },
     {
       name: 'New York',
       id: 1
+    },
+    {
+      name: 'Dudinka',
+      id: 2
     }]
   }
 
