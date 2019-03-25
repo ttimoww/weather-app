@@ -11,7 +11,6 @@ class AddLocation extends Component {
      * @param {object} e Event of the form
      */
     handleAddLocationValue = (e) => {
-        console.log(e.target.value);
         this.setState({
             addLocationValue : e.target.value
         })

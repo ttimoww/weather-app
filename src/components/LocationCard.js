@@ -50,6 +50,10 @@ class LocationCard extends Component{
         this.getCurrentWeather(this.props.cityName);
     }
 
+    handleRemoveLocation = () =>{
+        this.props.removeLocation(this.props.locationID);
+    }
+
     componentDidMount(){
         this.getCurrentWeather(this.props.cityName);
     }
@@ -73,7 +77,7 @@ class LocationCard extends Component{
         else if (this.state.error) {
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle remove-location" alt="Remove location"></i>
+                    <i className="fas fa-times-circle remove-location" onClick={this.handleRemoveLocation} alt="Remove location"></i>
                     <div className="location__container">
                         <div className="location__error">
                             <h2>{this.props.cityName}</h2>
@@ -88,7 +92,7 @@ class LocationCard extends Component{
         else if (!this.state.error){
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle remove-location" alt="Remove location"></i>
+                    <i className="fas fa-times-circle remove-location" onClick={this.handleRemoveLocation} alt="Remove location"></i>
                     <i className="fas fa-sync-alt reload-location" onClick={this.handleReloadLocation} alt="Reload location"></i>
                     <div className="location__container">
                         <div className="location__loaded">

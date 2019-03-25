@@ -39,13 +39,25 @@ class App extends Component {
     })
   }
 
+  /**
+  * Removes location from state based on location id
+  * @param {number} id ID of the location to be removed
+  */
+  handleRemoveLocation = (id) =>{
+    this.setState(prevState => {
+      return{
+        locations: prevState.locations.filter((location) => location.id !== id)
+      }
+    })
+  }
+
   render() {
     return (
       <div className="app">
         <div className="background-image"></div>
         <div className="container">
           <h1>Current weather in</h1>
-          <Results locations={this.state.locations}/>
+          <Results locations={this.state.locations} removeLocation={this.handleRemoveLocation} />
           <AddLocation addLocation={this.handleAddLocation} />
         </div>
       </div>

@@ -7,7 +7,9 @@ const results = props => {
             {props.locations.map((location) =>
                 <LocationCard 
                     key={location.id} 
+                    locationID={location.id}
                     cityName={location.name}
+                    removeLocation={props.removeLocation}
                     />
             )}
         </div>
