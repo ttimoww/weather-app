@@ -6,17 +6,37 @@ class App extends Component {
 
   state = {
     locations : [{
-      name: 'Amsterdam',
+      name: 'Paris',
       id: 0
     },
     {
-      name: 'New York',
+      name: 'Miami',
       id: 1
     },
     {
-      name: 'Dudinka',
+      name: 'Amersfoort',
       id: 2
     }]
+  }
+
+  prevLocationID = 2;
+
+  /**
+   * Add a new location to the app
+   * @param {string} name Name of the location.
+   */
+  handleAddLocation = (name) =>{
+    this.setState(prevState =>{
+      return{
+        locations: [
+          ...prevState.locations,
+          {
+            name: name,
+            id: this.prevLocationID += 1
+          }
+        ]
+      }
+    })
   }
 
   render() {
@@ -26,7 +46,7 @@ class App extends Component {
         <div className="container">
           <h1>Current weather in</h1>
           <Results locations={this.state.locations}/>
-          <AddLocation />
+          <AddLocation addLocation={this.handleAddLocation} />
         </div>
       </div>
     );

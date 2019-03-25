@@ -152,23 +152,23 @@ html, body {
     justify-content: flex-start;
   }
 }
-.addLocation input, .addLocation button {
+.addLocation form input, .addLocation form button {
   background-color: rgba(0, 0, 0, 0.4);
   border: none;
   color: #fff;
   border-radius: 4px;
   padding: 10px;
 }
-.addLocation input {
+.addLocation form input {
   box-sizing: border-box;
 }
 @media (min-width: 576px) {
-  .addLocation input {
+  .addLocation form input {
     width: 250px;
     margin-right: 15px;
   }
 }
-.addLocation button {
+.addLocation form button {
   cursor: pointer;
 }
 

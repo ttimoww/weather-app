@@ -46,20 +46,34 @@ class LocationCard extends Component{
         return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
     }
 
-    handleReloadLocation = () =>{
-        this.getCurrentWeather(this.props.cityName);        
+    handleReloadLocation = (e) =>{
+        this.getCurrentWeather(this.props.cityName);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getCurrentWeather(this.props.cityName);
     }
 
     render(){
-        //In case of error
-        if (this.state.error) {
+        //In case of loading
+        if (!this.state.isLoaded){
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle remove-location" ></i>
+                    <i className="fas fa-times-circle remove-location" alt="Remove location"></i>
+                    <div className="location__container">
+                        <div className="location__loading">
+                            <i className="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+        
+        //In case of error
+        else if (this.state.error) {
+            return(
+                <div className="location">
+                    <i className="fas fa-times-circle remove-location" alt="Remove location"></i>
                     <div className="location__container">
                         <div className="location__error">
                             <h2>{this.props.cityName}</h2>
@@ -74,8 +88,8 @@ class LocationCard extends Component{
         else if (!this.state.error){
             return(
                 <div className="location">
-                    <i className="fas fa-times-circle remove-location" ></i>
-                    <i className="fas fa-sync-alt reload-location" onClick={this.handleReloadLocation}></i>
+                    <i className="fas fa-times-circle remove-location" alt="Remove location"></i>
+                    <i className="fas fa-sync-alt reload-location" onClick={this.handleReloadLocation} alt="Reload location"></i>
                     <div className="location__container">
                         <div className="location__loaded">
                             <h2>{this.props.cityName}</h2>
@@ -90,20 +104,6 @@ class LocationCard extends Component{
                             <div className="location__timestamp">
                                 <p>Last calculation: {this.state.lastCalc}</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        }
-
-        //Else: loading
-        else{
-            return(
-                <div className="location">
-                    <i className="fas fa-times-circle remove-location" ></i>
-                    <div className="location__container">
-                        <div className="location__loading">
-                            <i className="fas fa-spinner fa-spin"></i>
                         </div>
                     </div>
                 </div>
