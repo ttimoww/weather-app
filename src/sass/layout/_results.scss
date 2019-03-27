@@ -116,6 +116,11 @@
                         text-align: center;
                         opacity: .7;
                         font-size: .7em;
+                        transition: opacity .5s;
+                    }
+
+                    .location__timestamp__p--white{
+                        opacity: 1;
                     }
                 }
             }

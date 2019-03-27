@@ -47,11 +47,11 @@ class LocationCard extends Component{
     }
 
     handleReloadLocation = (e) =>{
-        this.getCurrentWeather(this.props.cityName);
+        
     }
 
     handleRemoveLocation = () =>{
-        this.props.removeLocation(this.props.locationID);
+        this.props.removeLocation(this.props.id);
     }
 
     componentDidMount(){

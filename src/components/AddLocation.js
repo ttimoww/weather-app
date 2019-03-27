@@ -23,13 +23,14 @@ class AddLocation extends Component {
     handleAddLocation = (e) =>{
         e.preventDefault();
         this.props.addLocation(this.state.addLocationValue);
+        document.getElementById('addLocationValue').value = '';
     }
 
     render() { 
         return (  
             <div className="addLocation">
                 <form onSubmit={this.handleAddLocation}>
-                    <input placeholder="City Name" onChange={this.handleAddLocationValue}></input>
+                    <input placeholder="City Name" onChange={this.handleAddLocationValue} id="addLocationValue"></input>
                     <button type="submit">Add</button>
                 </form>
             </div>

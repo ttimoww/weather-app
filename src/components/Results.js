@@ -7,7 +7,7 @@ const results = props => {
             {props.locations.map((location) =>
                 <LocationCard 
                     key={location.id} 
-                    locationID={location.id}
+                    id={location.id}
                     cityName={location.name}
                     removeLocation={props.removeLocation}
                     />
