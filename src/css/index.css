@@ -46,7 +46,7 @@ html, body {
   position: relative;
   width: 100%;
   min-width: 230px;
-  height: 170px;
+  min-height: 170px;
   margin: 0px 15px 10px 0px;
 }
 @media (min-width: 576px) {
@@ -124,16 +124,28 @@ html, body {
   margin: 0;
   text-align: center;
 }
-.results .location .location__container .location__loaded .location__timestamp p {
+.results .location .location__container .location__loaded .location__last-calc p {
   color: #FFF;
   font-family: "Roboto", sans-serif;
-  margin: 15px 0 0 0;
+  margin: 0px;
   text-align: center;
   opacity: 0.7;
   font-size: 0.7em;
   transition: opacity 0.5s;
 }
-.results .location .location__container .location__loaded .location__timestamp .location__timestamp__p--white {
+.results .location .location__container .location__loaded .location__last-calc .location__timestamp__p--white {
+  opacity: 1;
+}
+.results .location .location__container .location__loaded .location__local-time p {
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.7em;
+  transition: opacity 0.5s;
+}
+.results .location .location__container .location__loaded .location__local-time .location__timestamp__p--white {
   opacity: 1;
 }
 .results .location .location__container .location__error h2 {

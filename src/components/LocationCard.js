@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { get } from '../js/xhr';
+import LastCalc from './LastCalc';
+import LocalTime from './LocalTime';
 
 class LocationCard extends Component{
     constructor(){
@@ -19,12 +21,13 @@ class LocationCard extends Component{
         get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4e262f77fbfc100ee6fca720cc13e5e5&units=metric`)
         .then((response) => {
             const weather = JSON.parse(response);
-            
             this.setState({
                 isLoaded : true,
                 imageCode: weather.weather[0].icon,
                 temp: Math.round(weather.main.temp),
-                lastCalc: this.convertToLocalTime(weather.dt)
+                lastCalc: weather.dt,
+                lon: weather.coord.lon,
+                lat: weather.coord.lat
             })
           }, (error) => {
             this.setState({
@@ -34,20 +37,8 @@ class LocationCard extends Component{
           })
     }
 
-    /**
-     * Converts unix to readable timestamp
-     * @param {string} utc The unix value to be converted
-     */
-    convertToLocalTime = (unix) =>{
-        const date = new Date(unix*1000);
-        const hours = date.getHours();
-        const minutes = "0" + date.getMinutes();
-        const seconds = "0" + date.getSeconds();
-        return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
-    }
-
     handleReloadLocation = (e) =>{
-        
+        this.getCurrentWeather(this.props.cityName);
     }
 
     handleRemoveLocation = () =>{
@@ -105,9 +96,8 @@ class LocationCard extends Component{
                                     <p>{this.state.temp}<span>°C</span></p>
                                 </div>
                             </div>
-                            <div className="location__timestamp">
-                                <p>Last calculation: {this.state.lastCalc}</p>
-                            </div>
+                            <LocalTime lat={this.state.lat} lon={this.state.lon} />
+                            <LastCalc unix={this.state.lastCalc} />
                         </div>
                     </div>
                 </div>
