@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LastCalc(props){
+function LocationLastCalc(props){
 
     /**
      * Converts unix to readable timestamp
@@ -21,7 +21,7 @@ function LastCalc(props){
     );
 }
  
-export default LastCalc;
+export default LocationLastCalc;
 
 
 

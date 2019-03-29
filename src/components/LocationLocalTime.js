@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class LocalTime extends Component {
+class LocationLocalTime extends Component {
     constructor(props){
         super();
         this.state = {
@@ -60,4 +60,4 @@ class LocalTime extends Component {
     }
 }
  
-export default LocalTime;
+export default LocationLocalTime;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Results from './Results';
-import AddLocation from './AddLocation';
 import ls from 'local-storage';
 import shortid from 'shortid';
 
@@ -62,8 +61,7 @@ class App extends Component {
         <div className="background-image"></div>
         <div className="container">
           <h1>Current weather in</h1>
-          <Results locations={this.state.locations} removeLocation={this.handleRemoveLocation} />
-          <AddLocation addLocation={this.handleAddLocation} />
+          <Results locations={this.state.locations} removeLocation={this.handleRemoveLocation} addLocation={this.handleAddLocation} />
         </div>
       </div>
     );

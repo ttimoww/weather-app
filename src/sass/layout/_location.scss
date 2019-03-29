@@ -1,0 +1,121 @@
+.location{
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    position: relative;
+    width: 100%;
+    min-width: 230px;
+    min-height: 170px;
+    margin: 0px 15px 10px 0px;
+
+
+    @include respond-above(xs){
+        width: 250px;
+    }
+
+    .location__container{
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+
+        //Visible when location data is being loaded
+        .location__loading{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i{
+                color: #fff;
+                font-size: 2em;
+            }
+        }
+
+
+        //Visible when location data is loaded
+        .location__loaded{
+
+            h2{
+                margin: 0 0 10px 0;
+                color: #FFF;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .location__weather{
+                display: flex;
+
+                .icon{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img{
+                        width: 80px;
+                    }
+                }
+
+                .temp{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    p{
+                        color: #FFF;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 3em;
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .location__last-calc{
+                p{
+                    color: #FFF;
+                    font-family: 'Roboto', sans-serif;
+                    margin: 0px;
+                    text-align: center;
+                    opacity: .7;
+                    font-size: .7em;
+                    transition: opacity .5s;
+                }
+
+                .location__timestamp__p--white{
+                    opacity: 1;
+                }
+            }
+
+            .location__local-time{
+                p{
+                    color: #FFF;
+                    font-family: 'Roboto', sans-serif;
+                    margin: 0px;
+                    text-align: center;
+                    opacity: .7;
+                    font-size: .7em;
+                    transition: opacity .5s;
+                }
+
+                .location__timestamp__p--white{
+                    opacity: 1;
+                }
+            }
+        }
+
+        //Visible when location loading failed
+        .location__error{
+            h2{
+                margin: 0 0 10px 0;
+                color: #FFF;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            p{
+                color: #FFF;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
+}

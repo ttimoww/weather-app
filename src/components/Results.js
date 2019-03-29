@@ -1,19 +1,44 @@
-import React from 'react';
-import LocationCard from './LocationCard';
+import React, { Component } from 'react';
+import Location from './Location';
+import NewLocation from './NewLocation';
+import AddLocation from './AddLocation';
 
-const results = props => {
-    return(
-        <div className="results">
-            {props.locations.map((location) =>
-                <LocationCard 
-                    key={location.id} 
-                    id={location.id}
-                    cityName={location.name}
-                    removeLocation={props.removeLocation}
-                    />
-            )}
-        </div>
-    )
+class Results extends Component{
+    state = {
+        showNewLocation : false
+    }
+
+    handleShowNewLocation = () => {
+        this.setState({showNewLocation: true});
+        console.log('show');
+    }
+
+    handleHideNewLocation = () => {
+        this.setState({showNewLocation: false});
+        console.log('hide');
+    }
+
+    render(){
+        let showNewLocation;
+        if(this.state.showNewLocation){
+            showNewLocation = <NewLocation hideNewLocation={this.handleHideNewLocation} addLocation={this.props.addLocation} />
+        }
+
+        return(
+            <div className="results">
+                {this.props.locations.map((location) =>
+                    <Location 
+                        key={location.id} 
+                        id={location.id}
+                        cityName={location.name}
+                        removeLocation={this.props.removeLocation}
+                        />
+                )}
+                {showNewLocation}
+                <AddLocation  showNewLocation={this.handleShowNewLocation} />
+            </div>
+        )
+    }
 }
 
-export default results;
+export default Results;

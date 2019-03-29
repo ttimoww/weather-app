@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { get } from '../js/xhr';
-import LastCalc from './LastCalc';
-import LocalTime from './LocalTime';
+import LocationLastCalc from './LocationLastCalc';
+import LocationLocalTime from './LocationLocalTime';
 
-class LocationCard extends Component{
+class Location extends Component{
     constructor(){
         super();
         this.state = {
@@ -96,8 +96,8 @@ class LocationCard extends Component{
                                     <p>{this.state.temp}<span>°C</span></p>
                                 </div>
                             </div>
-                            <LocalTime lat={this.state.lat} lon={this.state.lon} />
-                            <LastCalc unix={this.state.lastCalc} />
+                            <LocationLocalTime lat={this.state.lat} lon={this.state.lon} />
+                            <LocationLastCalc unix={this.state.lastCalc} />
                         </div>
                     </div>
                 </div>
@@ -106,4 +106,4 @@ class LocationCard extends Component{
     }
 }
 
-export default LocationCard;
+export default Location;
