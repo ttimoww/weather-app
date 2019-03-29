@@ -10,12 +10,10 @@ class Results extends Component{
 
     handleShowNewLocation = () => {
         this.setState({showNewLocation: true});
-        console.log('show');
     }
 
     handleHideNewLocation = () => {
         this.setState({showNewLocation: false});
-        console.log('hide');
     }
 
     render(){

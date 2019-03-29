@@ -11,4 +11,23 @@
     @include respond-above(xs){
         width: 250px;
     }
+
+    .new-location__container{
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+
+        form{
+
+            input{
+                border: none;
+                background-color: transparent;
+                margin: 0 0 10px 0;
+                color: #FFF;
+                font-family: 'Roboto', sans-serif;
+                border-bottom: 1px solid white;
+            }
+        }
+    }
 }

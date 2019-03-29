@@ -175,6 +175,20 @@ html, body {
     width: 250px;
   }
 }
+.new-location .new-location__container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.new-location .new-location__container form input {
+  border: none;
+  background-color: transparent;
+  margin: 0 0 10px 0;
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid white;
+}
 
 .addLocation {
   background-color: rgba(0, 0, 0, 0.3);
