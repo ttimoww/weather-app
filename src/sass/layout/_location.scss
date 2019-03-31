@@ -76,7 +76,6 @@
                     color: #FFF;
                     font-family: 'Roboto', sans-serif;
                     margin: 0px;
-                    text-align: center;
                     opacity: .7;
                     font-size: .7em;
                     transition: opacity .5s;
@@ -88,11 +87,11 @@
             }
 
             .location__local-time{
+                margin-top: 5px;
                 p{
                     color: #FFF;
                     font-family: 'Roboto', sans-serif;
                     margin: 0px;
-                    text-align: center;
                     opacity: .7;
                     font-size: .7em;
                     transition: opacity .5s;

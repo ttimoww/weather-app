@@ -89,11 +89,11 @@ class Location extends Component{
                         <div className="location__loaded">
                             <h2>{this.props.cityName}</h2>
                             <div className="location__weather">
-                                <div className="icon">
-                                    <img src={require(`../images/wheater/${this.state.imageCode}.png`)} alt="" />
-                                </div>
                                 <div className="temp">
                                     <p>{this.state.temp}<span>°C</span></p>
+                                </div>
+                                <div className="icon">
+                                    <img src={require(`../images/wheater/${this.state.imageCode}.png`)} alt="" />
                                 </div>
                             </div>
                             <LocationLocalTime lat={this.state.lat} lon={this.state.lon} />

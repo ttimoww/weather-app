@@ -13,7 +13,6 @@ class NewLocation extends Component {
 
     handleValueChangeCityName = (e) =>{
         this.setState({cityName: e.target.value});
-        console.log(this.state.cityName);
     }
 
     render() { 
@@ -22,8 +21,8 @@ class NewLocation extends Component {
                 <i className="fas fa-times-circle remove-location" alt="Remove location" onClick={this.props.hideNewLocation}></i>
                 <div className="new-location__container">
                     <form onSubmit={this.handleFormSubmit}>
-                        <input onChange={this.handleValueChangeCityName}></input>
-                        <button type="submit">Add</button>
+                        <input onChange={this.handleValueChangeCityName} placeholder="Enter City Name"></input>
+                        <button type="submit">submit</button>
                     </form>
                 </div>
             </div>
