@@ -18,7 +18,7 @@ class Location extends Component{
      * @param {string} city The name of the city to get the data from
      */
     getCurrentWeather = (city) =>{
-        get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4e262f77fbfc100ee6fca720cc13e5e5&units=metric`)
+        get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.REACT_APP_OPENWEATHER}&units=metric`)
         .then((response) => {
             const weather = JSON.parse(response);
             this.setState({

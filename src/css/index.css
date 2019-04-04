@@ -215,6 +215,9 @@ html, body {
   font-size: 0.7em;
   cursor: pointer;
   margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 3px;
+  border-radius: 2px;
 }
 
 .addLocation {

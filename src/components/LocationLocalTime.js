@@ -16,8 +16,7 @@ class LocationLocalTime extends Component {
     initClock(){
         // Get unix
         const timestamp = new Date().getTime()/1000;
-        const appid = 'AIzaSyCo861UJhT1kb6yVfSbAFTK5td8hlLy6vA';
-        fetch(`https://maps.googleapis.com/maps/api/timezone/json?location=${this.state.lat},${this.state.lon}&timestamp=${timestamp}&key=${appid}`)
+        fetch(`https://maps.googleapis.com/maps/api/timezone/json?location=${this.state.lat},${this.state.lon}&timestamp=${timestamp}&key=${process.env.REACT_APP_GOOGLE_TIMEZONE}`)
         .then(resp => resp.json())        
         .then(data => this.setState({locationTimestamp: timestamp + data.dstOffset + data.rawOffset}));
         
@@ -26,8 +25,10 @@ class LocationLocalTime extends Component {
                 return{
                     locationTimestamp: prevState.locationTimestamp += 1
                 }
-            })
+            });
         }, 1000);
+
+        
     }
 
     
@@ -37,7 +38,7 @@ class LocationLocalTime extends Component {
      */
     convertToLocalTime = (unix) =>{
         const date = new Date(unix*1000);
-        const hours = date.getHours() - 1;
+        const hours = date.getHours() - 2;
         const minutes = "0" + date.getMinutes();
         const seconds = "0" + date.getSeconds();
         return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
