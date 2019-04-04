@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# weather-app
-=======
 # weather-app
 
 This repository contains a simple app to track the weather of your pinned cities.
