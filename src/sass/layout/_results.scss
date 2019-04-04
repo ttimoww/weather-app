@@ -1,0 +1,9 @@
+.results{
+    display: flex;
+    flex-direction: column;
+
+    @include respond-above(xs){
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

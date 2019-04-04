@@ -1,0 +1,60 @@
+.new-location{
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    position: relative;
+    width: 100%;
+    min-width: 230px;
+    min-height: 170px;
+    margin: 0px 15px 10px 0px;
+
+
+    @include respond-above(xs){
+        width: 250px;
+    }
+
+    .new-location__container{
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+
+        form{
+            width: 100%;
+            box-sizing: border-box;
+
+            input{
+                border: none;
+                background-color: transparent;
+                text-align: center;
+                color: #FFF;
+                font-family: 'Roboto', sans-serif;
+                width: 100%;
+                font-size: 1em;
+                font-weight: bold;
+                margin-bottom: 10px;
+
+                &::placeholder{
+                    color: rgba(255, 255, 255, .8);
+                }
+            }
+
+            button{
+                display: block;
+                padding: 0;
+                color: rgba(255, 255, 255, .8);
+                font-family: 'Roboto', sans-serif;
+                border-bottom: 1px solid white;
+                background-color: transparent;
+                border: none;
+                font-size: .7em;
+                cursor: pointer;
+                margin: 0 auto;
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                padding: 3px;     
+                border-radius: 2px;
+            }
+        }
+    }
+}
